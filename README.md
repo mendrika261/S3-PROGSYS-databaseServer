@@ -2,9 +2,9 @@
 
 ## Execution
 
-Download a released version <a href="">here</a> <br>
+Download a released version <a href="https://github.com/mendrika261/database/releases/tag/AlphaTest">here</a> <br>
 <b>Console:</b> `java -jar database.jar 1234` <br>
-<b>Args:</b> The port to listen (<a href="">Client can be download here</a>)
+<b>Args:</b> The port to listen (<a href="https://github.com/mendrika261/databaseClient/blob/main/README.md">Client can be download here</a>)
 
 ## Working query
 
