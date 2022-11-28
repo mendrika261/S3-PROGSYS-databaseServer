@@ -107,8 +107,7 @@ public class Table implements Serializable {
     }
 
     public Table difference(Table table2) throws TableIncompatibleException, ColDuplicateException {
-        // if(getColNames().elements() == table2.getColNames().elements())
-        //    throw new TableIncompatibleException(getName(), table2.getName());
+        // TODO table compatible
 
         Table res = new Table(getName(), getColNames());
         for(Row row:getData())
@@ -188,7 +187,7 @@ public class Table implements Serializable {
 
     public String description() {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Table \"").append(getName()).append("\": \n");
+        stringBuilder.append("\nTable \"").append(getName()).append("\": \n");
         for(String col:getColNames())
             stringBuilder.append("\t").append(col).append("\n");
         return stringBuilder.toString();
@@ -209,12 +208,11 @@ public class Table implements Serializable {
     }
 
     public void setColNames(Vector<String> colNames) throws ColDuplicateException {
-        /*Vector<String> temp = new Vector<>();
+        Vector<String> temp = new Vector<>();
         for(String col:colNames)
             if(temp.contains(col))
                 throw new ColDuplicateException(col, getName());
-            else
-                temp.add(col);*/
+            else temp.add(col);
         this.colNames = colNames;
     }
 

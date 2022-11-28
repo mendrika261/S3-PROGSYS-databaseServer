@@ -1,6 +1,5 @@
 package interpreter;
 
-import exception.object.TableNotExistsException;
 import exception.query.MissingParenthesesException;
 import exception.query.SyntaxIncompleteException;
 import exception.query.SyntaxInvalidException;
@@ -43,21 +42,39 @@ public class Query {
 
     public Table execute() throws Exception {
         Table result = new Table();
-        int resultSize=0;
+        int resultSize;
         if(isSyntaxOK())
             switch (getQueryPart(0)) {
                 case "SELECT" -> {
-                    if (getQueryParts().length == 4) {
-                        result = getDatabase().getTable(getQueryPart(3));
-                    } else if(getQueryPart(4).equals("JOIN")) {
-                        result = getDatabase().getTable(getQueryPart(3)).join(getDatabase().getTable(getQueryPart(5)), getQueryPart(7));
-                        if (getQueryParts().length > 8)
-                            result = result.selection(getQueryPart(9));
-                    //} else if(getQueryPart(1).equals("DIFFERENCE")) {
-                    //    result = getDatabase().getTable(getQueryPart(2)).difference(getDatabase().getTable(getQueryPart(4)));
-                    } else {
-                        result = getDatabase().getTable(getQueryPart(3)).selection(getQueryPart(5));
+                    // SELECT * FROM table
+                    result = getDatabase().getTable(getQueryPart(3));
+
+                    if(getQueryPart(4)!=null) {
+                        // SELECT * FROM table JOIN table2 ON col=col
+                        if (getQueryPart(4).equals("JOIN"))
+                            result = result.join(getDatabase().getTable(getQueryPart(5)), getQueryPart(7));
+                        // SELECT * FROM table MINUS table2
+                        else if (getQueryPart(4).equals("MINUS"))
+                            result = result.difference(getDatabase().getTable(getQueryPart(5)));
+                        // SELECT * FROM table DIVIDED_BY table2
+                        else if (getQueryPart(4).equals("DIVIDED_BY"))
+                            result = result.division(getDatabase().getTable(getQueryPart(5)));
+                        // SELECT * FROM table UNION table2
+                        else if (getQueryPart(4).equals("UNION"))
+                            result = result.union(getDatabase().getTable(getQueryPart(5)));
+                        // SELECT * FROM table INTERSECTS table2
+                        else if (getQueryPart(4).equals("INTERSECTS"))
+                            result = result.intersects(getDatabase().getTable(getQueryPart(5)));
                     }
+
+                    // SELECT * FROM table JOIN table2 ON col=col WHERE condition
+                    if (getQueryParts().length > 8) result = result.selection(getQueryPart(9));
+                    // SELECT * FROM table DIVIDED_BY table2 WHERE condition
+                    if (getQueryParts().length > 6) result = result.selection(getQueryPart(8));
+                    // SELECT * FROM table WHERE condition
+                    else if(getQueryParts().length > 4) result = result.selection(getQueryPart(5));
+
+                    // SELECT col1,col2 ....
                     result = result.projection(getQueryPart(1).split(","));
                 }
 
@@ -85,11 +102,12 @@ public class Query {
                 }
 
                 case "DESC" -> {
-                    if(getQueryParts().length==2) {
-                        if(!getDatabase().isTable(getQueryPart(1)))
-                            throw new TableNotExistsException(getQueryPart(1), getDatabase().getName());
+                    // TODO add database to not authorized name
+                    if ("DATABASE".equals(getQueryPart(1)))
+                        result.setTextModification(getDatabase().description());
+                    else
                         result.setTextModification(getDatabase().getTable(getQueryPart(1)).description());
-                    } else result.setTextModification(getDatabase().description());
+
                 }
 
                 case "COMMIT" -> {
@@ -111,28 +129,7 @@ public class Query {
                     getDatabase().dropTable(getQueryPart(2));
                     result.setTextModification("Table supprimé dans la base (1)");
                 }
-
-                case "DIFFERENCE" -> {
-                    result = getDatabase().getTable(getQueryPart(1)).difference(getDatabase().getTable(getQueryPart(3)));
-                }
-
-                case "DIVIDE" -> {
-                    result = getDatabase().getTable(getQueryPart(1)).division(getDatabase().getTable(getQueryPart(3)));
-                }
-
-                default -> {
-                    switch (getQueryPart(1)) {
-                        case "UNION" -> {
-                            result = getDatabase().getTable(getQueryPart(0)).union(getDatabase().getTable(getQueryPart(2)));
-                        }
-                        case "INTERSECT" -> {
-                            result = getDatabase().getTable(getQueryPart(0)).intersects(getDatabase().getTable(getQueryPart(2)));
-                        }
-
-                        default -> System.exit(0);
-                    }
-                }
-            } else throw new SyntaxInvalidException(getQuery(), getQuery());
+            }
         return result;
     }
 

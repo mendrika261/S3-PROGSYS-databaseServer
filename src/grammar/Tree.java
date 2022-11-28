@@ -17,28 +17,37 @@ public class Tree implements Serializable {
         addNode(1, "^[0-9a-zA-Z\\*]+(,[0-9a-zA-Z]+)*$", false, true); // nom de colonne séparé par des virgules et sans espace
         addNode(2, "FROM");
         addNode(3, "[A-Za-z0-9]+", true, true); // nom de table
+
         addNode(4, "WHERE");
         addNode(5, "[A-Za-z0-9]+[=!<>]+[A-Za-z0-9]+", true, true);
 
-        /* jointure */
+        /* Difference */
+        addNode(4, "MINUS");
+        addNode(5, "[A-Za-z0-9]+", true, true); // nom de table
+
+        /* Division */
+        addNode(4, "DIVIDED_BY");
+        addNode(5, "[A-Za-z0-9]+", true, true); // nom de table
+
+        /* Union */
+        addNode(4, "UNION");
+        addNode(5, "[A-Za-z0-9]+", true, true); // nom de table
+
+        /* Intersection */
+        addNode(4, "INTERSECTS");
+        addNode(5, "[A-Za-z0-9]+", true, true); // nom de table
+
+        addNode(6, "WHERE");
+        addNode(7, "[A-Za-z0-9]+[=!<>]+[A-Za-z0-9]+", true, true);
+
+        /* Jointure */
         addNode(4, "JOIN");
         addNode(5, "[A-Za-z0-9]+", false, true); // nom de table
         addNode(6, "ON");
         addNode(7, "[A-Za-z0-9]+[=!<>]+[A-Za-z0-9]+", true, true);
+
         addNode(8, "WHERE");
         addNode(9, "[A-Za-z0-9]+[=!<>]+[A-Za-z0-9]+", true, true);
-
-        /* Difference */
-        addNode(0, "DIFFERENCE");
-        addNode(1, "[A-Za-z0-9]+", false, true); // nom de table
-        addNode(2, "AND");
-        addNode(3, "[A-Za-z0-9]+", true, true); // nom de table
-
-        /* Division */
-        addNode(0, "DIVIDE");
-        addNode(1, "[A-Za-z0-9]+", false, true); // nom de table
-        addNode(2, "BY");
-        addNode(3, "[A-Za-z0-9]+", true, true); // nom de table
 
         /* insert */
         addNode(0, "INSERT");
@@ -74,21 +83,15 @@ public class Tree implements Serializable {
         addNode(1, "TABLE");
         addNode(2, "[A-Za-z0-9]+", true, true); // nom de table
 
-        addNode(0, "DESC", true);
+        addNode(0, "DESC", false);
         addNode(1, "[A-Za-z0-9]+", true, true); // nom de table
+
 
         addNode(0, "COMMIT", true);
 
         addNode(0, "ROLLBACK", true);
 
         addNode(0, "EXIT", true);
-
-        addNode(0, "[A-Za-z0-9]+", false, true); // nom de table
-        addNode(1, "UNION");
-        addNode(2, "[A-Za-z0-9]+", true, true); // nom de table
-
-        addNode(1, "INTERSECT");
-        addNode(2, "[A-Za-z0-9]+", true, true); // nom de table
 
         FileManager.clear(getFilename());
         FileManager.save(getFilename(), getNodesTemp());
