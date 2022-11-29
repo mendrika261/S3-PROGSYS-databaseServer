@@ -1,22 +1,35 @@
 package server;
 
+import display.Color;
+
 import java.net.ServerSocket;
-import java.net.Socket;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]));
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("-- Serveur --");
+        System.out.println("--- Debut ---");
+
+        ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]));
+        UserListener userListener = new UserListener(serverSocket);
+        userListener.start();
+        System.out.println(Color.YELLOW + "Le serveur est demarré sur le port "+ serverSocket.getLocalPort() + Color.RESET);
 
         while (true) {
-            Socket socket = serverSocket.accept();
-            SessionUser sessionUser = new SessionUser(socket);
-            sessionUser.start();
+            System.out.print("Command >> ");
+            String command = scanner.nextLine();
+
+            if (command.equals("STOP")) {
+                ClosedListener closedListener = new ClosedListener(serverSocket, userListener);
+                closedListener.start();
+                System.out.println("\tEn attente des utilisateurs: "+ userListener.statusOfClients());
+            } else if(command.equals("FORCE STOP")) {
+                System.exit(0);
+                } else System.out.println(Color.RED + "\tCommande invalide" + Color.RESET);
+
+            if(userListener.activeClients()==0) break;
         }
-
-        //serverSocket.close();
-
     }
 }

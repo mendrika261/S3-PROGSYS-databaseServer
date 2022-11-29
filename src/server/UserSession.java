@@ -8,14 +8,13 @@ import object.Database;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
-import java.time.Instant;
-import java.util.Date;
 
-public class SessionUser extends Thread {
+public class UserSession extends Thread {
     Socket socket;
 
-    public SessionUser(Socket socket) {
+    public UserSession(Socket socket) {
         setSocket(socket);
+        setName("One session");
     }
 
     @Override
@@ -31,9 +30,9 @@ public class SessionUser extends Thread {
                 String result = null;
                 try {
                     String clientMessage = dataInputStream.readUTF();
-                    if (clientMessage.equals("exit")) {
-                        dataOutputStream.writeUTF("exit");
-                        break;
+                    if (clientMessage.equals("EXIT")) {
+                        dataOutputStream.writeUTF("EXIT");
+                        getSocket().close();
                     }
                     query.setQuery(clientMessage);
                     while (query.getNbSubQuery() != 0) query.executeSubQuery();
@@ -43,7 +42,8 @@ public class SessionUser extends Thread {
                     result = Color.RED + e.getMessage() + Color.RESET;
                 } finally {
                     if (result != null) dataOutputStream.writeUTF(result);
-                    System.out.println(Date.from(Instant.now()) + ": " + query.getQuery());
+                    // TODO log
+                    //System.out.println(Date.from(Instant.now()) + ": " + query.getQuery());
                 }
             }
         } catch (Exception ignored) {}

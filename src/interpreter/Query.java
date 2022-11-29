@@ -25,6 +25,10 @@ public class Query {
         return testSyntax(0, Tree.getRoots());
     }
 
+    boolean haveCondition(String query) {
+        return query.contains("WHERE");
+    }
+
     boolean testSyntax(int queryIndex, Vector<Node> nodes) throws Exception {
         for(Node node:nodes) {
             // matching correspondance syntaxe et S'IL peut etre la fin
@@ -68,11 +72,11 @@ public class Query {
                     }
 
                     // SELECT * FROM table JOIN table2 ON col=col WHERE condition
-                    if (getQueryParts().length > 8) result = result.selection(getQueryPart(9));
+                    if (haveCondition(getQuery()) && getQueryParts().length > 8) result = result.selection(getQueryPart(9));
                     // SELECT * FROM table DIVIDED_BY table2 WHERE condition
-                    if (getQueryParts().length > 6) result = result.selection(getQueryPart(8));
+                    if (haveCondition(getQuery()) && getQueryParts().length > 6) result = result.selection(getQueryPart(8));
                     // SELECT * FROM table WHERE condition
-                    else if(getQueryParts().length > 4) result = result.selection(getQueryPart(5));
+                    else if(haveCondition(getQuery()) && getQueryParts().length > 4) result = result.selection(getQueryPart(5));
 
                     // SELECT col1,col2 ....
                     result = result.projection(getQueryPart(1).split(","));
