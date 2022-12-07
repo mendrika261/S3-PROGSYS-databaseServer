@@ -1,0 +1,48 @@
+LOGIN - [2022-12-06 10:57:46.370213] localhost: I'am here now
+ERROR - [2022-12-06 10:58:38.597402] localhost: 
+ERROR - [2022-12-06 10:58:59.25042] localhost: ls
+ERROR - [2022-12-06 10:59:06.052876] localhost: SHOW DATABASE;
+ERROR - [2022-12-06 10:59:10.978766] localhost: SHOW;
+ERROR - [2022-12-06 10:59:16.027397] localhost: SHOW DATABASE
+QUERY - [2022-12-06 11:00:04.34244] localhost: DESC DATABASE
+ERROR - [2022-12-06 11:00:10.428285] localhost: SELECT * FROM DATABASE
+QUERY - [2022-12-06 11:00:19.339776] localhost: DESC DATABASE
+LOGIN - [2022-12-06 13:50:46.627203] localhost: I'am here now
+QUERY - [2022-12-06 13:50:55.258464] localhost: DESC DATABASE
+QUERY - [2022-12-06 13:51:00.631972] localhost: SELECT * FROM test
+LOGIN - [2022-12-06 13:51:37.112504] localhost: I'am here now
+QUERY - [2022-12-06 13:51:49.888934] localhost: INSERT INTO test VALUES 3,test,pass
+QUERY - [2022-12-06 13:52:00.706567] localhost: SELECT * FROM test
+QUERY - [2022-12-06 13:52:07.866424] localhost: SELECT * FROM test
+QUERY - [2022-12-06 13:52:28.891003] localhost: COMMIT
+QUERY - [2022-12-06 13:52:37.63621] localhost: SELECT * FROM test
+QUERY - [2022-12-06 13:52:47.594678] localhost: SELECT * FROM test
+LOGOUT - [2022-12-06 13:53:01.176503] localhost: I'm out now
+LOGIN - [2022-12-06 13:53:02.796281] localhost: I'am here now
+QUERY - [2022-12-06 13:53:06.460093] localhost: SELECT * FROM test
+ERROR - [2022-12-06 13:53:32.312772] localhost: COMMIT
+ERROR - [2022-12-06 13:53:32.313757] localhost: COMMIT
+LOGIN - [2022-12-07 21:57:38.036178] localhost: I'am here now
+ERROR - [2022-12-07 21:57:53.630615] localhost: ls
+ERROR - [2022-12-07 21:58:03.467774] localhost: ls
+ERROR - [2022-12-07 21:58:04.41838] localhost: ls
+ERROR - [2022-12-07 21:58:05.217804] localhost: ls
+ERROR - [2022-12-07 21:58:07.049933] localhost: ls
+ERROR - [2022-12-07 21:58:09.298581] localhost: ls
+ERROR - [2022-12-07 21:58:10.017022] localhost: ls
+ERROR - [2022-12-07 21:58:10.766096] localhost: ls
+ERROR - [2022-12-07 21:58:11.520559] localhost: ls
+ERROR - [2022-12-07 21:58:12.251427] localhost: ls
+ERROR - [2022-12-07 21:58:13.048747] localhost: l
+ERROR - [2022-12-07 21:58:14.014789] localhost: sls
+ERROR - [2022-12-07 21:58:14.39385] localhost: 
+ERROR - [2022-12-07 21:58:15.404778] localhost: ls
+ERROR - [2022-12-07 21:58:16.180982] localhost: ls
+ERROR - [2022-12-07 21:58:16.901302] localhost: ls
+ERROR - [2022-12-07 21:58:17.772546] localhost: ls
+ERROR - [2022-12-07 21:58:18.536193] localhost: ls
+ERROR - [2022-12-07 21:58:19.24892] localhost: ls
+ERROR - [2022-12-07 21:58:19.9482] localhost: ls
+ERROR - [2022-12-07 21:58:20.799196] localhost: ls
+ERROR - [2022-12-07 23:10:36.539484] localhost: ls
+ERROR - [2022-12-07 23:10:36.545962] localhost: ls

@@ -2,19 +2,22 @@ package server;
 
 import display.Color;
 import display.Console;
+import file.FileManager;
 import interpreter.Query;
 import object.Database;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 public class UserSession extends Thread {
     Socket socket;
 
     public UserSession(Socket socket) {
         setSocket(socket);
-        setName("One session");
+        setName("Session of " + getSocket().getInetAddress().getHostName());
     }
 
     @Override
@@ -25,25 +28,32 @@ public class UserSession extends Thread {
 
             Database database = new Database("test");
             Query query = new Query(database);
+            String clientMessage;
 
             while (!getSocket().isClosed()) {
                 String result = null;
                 try {
-                    String clientMessage = dataInputStream.readUTF();
+                    clientMessage = dataInputStream.readUTF();
+
                     if (clientMessage.equals("EXIT")) {
+                        FileManager.writeLog("LOGOUT - [" + Timestamp.from(Instant.now()) +"] " + getSocket().getInetAddress().getHostName() + ": I'm out now");
                         dataOutputStream.writeUTF("EXIT");
                         getSocket().close();
+                        return;
                     }
+
                     query.setQuery(clientMessage);
                     while (query.getNbSubQuery() != 0) query.executeSubQuery();
                     result = Console.print(query.execute());
                     query.getDatabase().clearSubQueryTable();
+
+                    FileManager.writeLog("QUERY - ["+ Timestamp.from(Instant.now()) + "] " + getSocket().getInetAddress().getHostName() + ": " + query.getQuery());
                 } catch (Exception e) {
                     result = Color.RED + e.getMessage() + Color.RESET;
+
+                    FileManager.writeLog("ERROR - ["+ Timestamp.from(Instant.now()) +"] "+ getSocket().getInetAddress().getHostName() +": " + query.getQuery());
                 } finally {
                     if (result != null) dataOutputStream.writeUTF(result);
-                    // TODO log
-                    //System.out.println(Date.from(Instant.now()) + ": " + query.getQuery());
                 }
             }
         } catch (Exception ignored) {}

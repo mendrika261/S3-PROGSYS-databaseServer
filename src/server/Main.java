@@ -25,11 +25,14 @@ public class Main {
                 ClosedListener closedListener = new ClosedListener(serverSocket, userListener);
                 closedListener.start();
                 System.out.println("\tEn attente des utilisateurs: "+ userListener.statusOfClients());
-            } else if(command.equals("FORCE STOP")) {
+            } else if (command.equals("FORCE STOP"))
                 System.exit(0);
-                } else System.out.println(Color.RED + "\tCommande invalide" + Color.RESET);
+            else if (command.equals("STATUS"))
+                System.out.println("\tStatus: " + userListener.statusOfClients());
 
-            if(userListener.activeClients()==0) break;
+            else System.out.println(Color.RED + "\tCommande invalide" + Color.RESET);
+
+            //if(userListener.activeClients()==0) break;
         }
     }
 }

@@ -1,27 +1,29 @@
-# Server version of the database
+# Java DBMS project
 
-## Execution
+This is the server CLI-Based Application of a database management system (DBMS) implemented in Java.
+Client can be found <a href='https://github.com/mendrika261/databaseClient'>here</a>.
 
-> Download a released version <a href="https://github.com/mendrika261/database/releases/tag/AlphaTest">here</a> <br>
-<b>Console:</b> `java -jar database.jar 1234` <br>
-<b>Args:</b> The port to listen (<a href="https://github.com/mendrika261/databaseClient/blob/main/README.md">Client can be download here</a>)
+> Remember that it is just for educational use!
 
-## Working query
+## How to use
 
-- CREATE TABLE table COLS col1,col2...
-- DROP TABLE table
-- SELECT col1,col2,col3... FROM table
-- SELECT col1,col2,col3... FROM table WHERE (1 condition)
-- INSERT INTO table VALUES val1,val2,val3...
-- DESC table / DESC (database)
-- COMMIT
-- ROLLBACK
-- SELECT * FROM table
-- UPDATE table SET col1=val1 WHERE (1 condition fac.)
-- DELETE FROM table WHERE (1 condition fac.)
-- SELECT * FROM table JOIN user ON id==id
-- SELECT * FROM table JOIN user ON id==id WHERE (1 condition)
-- (query1) UNION (query2)
-- (query1) INTERSECTS (query1)
-- DIFFERENCE table1 AND table2
-- DIVIDE table1 BY table2
+### Requirements
+* Java Runtime Environment
+* Command Line Interface - CLI
+* Whatever Operating System
+
+### Using the compiled .jar released
+You can download the latest version on <a href='https://github.com/mendrika261/databaseClient/releases'>release section</a>.<br>
+**Run:** `java -jar database.jar [port]`<br>
+**Args:** The port to listen
+
+### Working commands
+**Be Aware!** <br>
+- Syntax are case-sensitive
+- Don't use comma or any operators with space
+- No semicolon at the end of a query
+
+#### Management
+- `STATUS` to see online client and processed client
+- `STOP` to stop the server but wait for all clients to exit
+- `FORCE STOP` to stop the server without waiting clients

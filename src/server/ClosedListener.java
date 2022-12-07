@@ -10,6 +10,7 @@ public class ClosedListener extends Thread {
     public ClosedListener(ServerSocket serverSocket, UserListener userListener) {
         setServerSocket(serverSocket);
         setMultiUser(userListener);
+        setName("Listen before stopping server");
     }
 
     @Override
@@ -28,6 +29,7 @@ public class ClosedListener extends Thread {
             }
         }
 
+        System.out.println();
         System.out.println("--- Fin ---");
         System.exit(0);
     }

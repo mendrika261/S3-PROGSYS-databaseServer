@@ -1,9 +1,13 @@
 package server;
 
+import file.FileManager;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +17,7 @@ public class UserListener extends Thread {
 
     public UserListener(ServerSocket serverSocket) {
         setServerSocket(serverSocket);
-        setName("Multi user");
+        setName("Listen for users");
     }
 
     @Override
@@ -23,13 +27,16 @@ public class UserListener extends Thread {
         while (!getServerSocket().isClosed()) {
             try {
                 socket = getServerSocket().accept();
+
+                FileManager.writeLog("LOGIN - ["+ Timestamp.from(Instant.now()) +"] "+ socket.getInetAddress().getHostName()
+                        +": I'am here now");
             } catch (SocketException e) {
                 return;
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-            if(socket==null) continue;
+            //if(socket==null) continue;
             getSockets().add(socket);
             UserSession userSession = new UserSession(socket);
             userSession.start();
@@ -45,7 +52,7 @@ public class UserListener extends Thread {
     }
 
     public String statusOfClients() {
-        return activeClients() + "/" + getSockets().size() + " client(s)";
+        return activeClients() + " client(s) actif(s) et " + getSockets().size() + " client(s) traité(s)";
     }
 
     public ServerSocket getServerSocket() {
