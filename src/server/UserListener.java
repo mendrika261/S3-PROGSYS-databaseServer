@@ -13,7 +13,7 @@ import java.util.List;
 
 public class UserListener extends Thread {
     ServerSocket serverSocket;
-    List<Socket> sockets = new ArrayList<>();
+    List<UserSession> users = new ArrayList<>();
 
     public UserListener(ServerSocket serverSocket) {
         setServerSocket(serverSocket);
@@ -36,23 +36,22 @@ public class UserListener extends Thread {
                 throw new RuntimeException(e);
             }
 
-            //if(socket==null) continue;
-            getSockets().add(socket);
             UserSession userSession = new UserSession(socket);
+            getUsers().add(userSession);
             userSession.start();
         }
     }
 
     public int activeClients() {
         int active = 0;
-        for (Socket socket:getSockets()) {
-            if (!socket.isClosed()) active++;
+        for (UserSession userSession:getUsers()) {
+            if (!userSession.getSocket().isClosed()) active++;
         }
         return active;
     }
 
     public String statusOfClients() {
-        return activeClients() + " client(s) actif(s) et " + getSockets().size() + " client(s) traité(s)";
+        return activeClients() + " client(s) actif(s) et " + getUsers().size() + " client(s) traité(s)";
     }
 
     public ServerSocket getServerSocket() {
@@ -63,11 +62,11 @@ public class UserListener extends Thread {
         this.serverSocket = serverSocket;
     }
 
-    public List<Socket> getSockets() {
-        return sockets;
+    public void setUsers(List<UserSession> users) {
+        this.users = users;
     }
 
-    public void setSockets(List<Socket> sockets) {
-        this.sockets = sockets;
+    public List<UserSession> getUsers() {
+        return users;
     }
 }

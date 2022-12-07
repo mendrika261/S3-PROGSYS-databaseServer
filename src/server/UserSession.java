@@ -14,6 +14,7 @@ import java.time.Instant;
 
 public class UserSession extends Thread {
     Socket socket;
+    Database database;
 
     public UserSession(Socket socket) {
         setSocket(socket);
@@ -26,8 +27,8 @@ public class UserSession extends Thread {
             DataInputStream dataInputStream = new DataInputStream(getSocket().getInputStream());
             DataOutputStream dataOutputStream = new DataOutputStream(getSocket().getOutputStream());
 
-            Database database = new Database("test");
-            Query query = new Query(database);
+            setDatabase(new Database("test"));
+            Query query = new Query(getDatabase());
             String clientMessage;
 
             while (!getSocket().isClosed()) {
@@ -47,6 +48,8 @@ public class UserSession extends Thread {
                     result = Console.print(query.execute());
                     query.getDatabase().clearSubQueryTable();
 
+                    if (clientMessage.equals("COMMIT")) Main.getCommitThread().run();
+
                     FileManager.writeLog("QUERY - ["+ Timestamp.from(Instant.now()) + "] " + getSocket().getInetAddress().getHostName() + ": " + query.getQuery());
                 } catch (Exception e) {
                     result = Color.RED + e.getMessage() + Color.RESET;
@@ -65,5 +68,13 @@ public class UserSession extends Thread {
 
     public Socket getSocket() {
         return socket;
+    }
+
+    public void setDatabase(Database database) {
+        this.database = database;
+    }
+
+    public Database getDatabase() {
+        return database;
     }
 }
