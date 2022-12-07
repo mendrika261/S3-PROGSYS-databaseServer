@@ -18,7 +18,7 @@ You can download the latest version on <a href='https://github.com/mendrika261/d
 **Args:** The port to listen
 
 ### Working commands
-**Be Aware!** <br>
+**Be Aware !** <br>
 - Syntax are case-sensitive
 - Don't use comma or any operators with space
 - No semicolon at the end of a query
