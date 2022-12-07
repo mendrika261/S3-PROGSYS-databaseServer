@@ -13,7 +13,7 @@ Client can be found <a href='https://github.com/mendrika261/databaseClient'>here
 * Whatever Operating System
 
 ### Using the compiled .jar released
-You can download the latest version on <a href='https://github.com/mendrika261/databaseClient/releases'>release section</a>.<br>
+You can download the latest version on <a href='https://github.com/mendrika261/database/releases'>release section</a>.<br>
 **Run:** `java -jar database.jar [port]`<br>
 **Args:** The port to listen
 
