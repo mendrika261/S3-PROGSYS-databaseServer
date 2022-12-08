@@ -17,9 +17,13 @@ You can download the latest version on <a href='https://github.com/mendrika261/d
 **Run:** `java -jar database.jar [port]`<br>
 **Args:** The port to listen
 
+### About Log
+Database log can be found on `file/db/database.log`.
+There are error, login, logout and trace of all query based on ip and time.
+
 ### Working commands
 **Be Aware !** <br>
-- Syntax are case-sensitive
+- Syntax are <b>STRICTLY</b> case-sensitive
 - Don't use comma or any operators with space
 - No semicolon at the end of a query
 
