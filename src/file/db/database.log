@@ -65,3 +65,140 @@ ERROR - [2022-12-08 00:05:42.705043] localhost: SELECT * FROM TEST
 QUERY - [2022-12-08 00:05:47.780346] localhost: SELECT * FROM test
 QUERY - [2022-12-08 00:05:51.852409] localhost: COMMIT
 QUERY - [2022-12-08 00:05:58.341322] localhost: SELECT * FROM test
+LOGIN - [2022-12-08 08:03:57.291526] localhost: I'am here now
+QUERY - [2022-12-08 08:04:04.584449] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:04:11.975075] localhost: I'am here now
+QUERY - [2022-12-08 08:04:15.939194] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:05:09.342477] localhost: CREATE TABLE test COLS id,name,qsdf
+QUERY - [2022-12-08 08:05:16.261871] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:06:51.77669] localhost: I'am here now
+QUERY - [2022-12-08 08:07:45.620337] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:07:51.670494] localhost: I'am here now
+QUERY - [2022-12-08 08:07:54.923512] localhost: DESC DATABASE
+ERROR - [2022-12-08 08:08:01.756548] localhost: CREATE TABLE test2 id2
+ERROR - [2022-12-08 08:08:11.245308] localhost: CREATE TABLE test2 COLS id2
+ERROR - [2022-12-08 08:08:55.606279] localhost: CREATE TABLE test2 COLS id2
+QUERY - [2022-12-08 08:09:05.521461] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:10:26.112872] localhost: I'am here now
+ERROR - [2022-12-08 08:11:07.095043] localhost: null
+ERROR - [2022-12-08 08:11:07.106047] localhost: null
+LOGIN - [2022-12-08 08:11:08.279145] localhost: I'am here now
+LOGIN - [2022-12-08 08:11:11.376676] localhost: I'am here now
+QUERY - [2022-12-08 08:11:15.763046] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:11:19.622197] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:11:29.226148] localhost: CREATE TABLE test COLS id
+QUERY - [2022-12-08 08:11:34.451777] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:11:49.742225] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:14:41.181015] localhost: I'am here now
+QUERY - [2022-12-08 08:14:51.983806] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:15:01.445127] localhost: CREATE TABLE test COLS id
+QUERY - [2022-12-08 08:15:08.169107] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:15:43.424219] localhost: I'am here now
+QUERY - [2022-12-08 08:15:48.80279] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:15:51.912835] localhost: I'am here now
+QUERY - [2022-12-08 08:15:58.693397] localhost: CREATE TABLE test COLS id
+QUERY - [2022-12-08 08:16:03.955755] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:16:08.475906] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:17:13.459549] localhost: DESC test
+QUERY - [2022-12-08 08:17:28.574819] localhost: INSERT INTO test VALUES 1
+QUERY - [2022-12-08 08:17:39.734534] localhost: SELECT * FROM test
+ERROR - [2022-12-08 08:17:44.377729] localhost: COMMIT
+QUERY - [2022-12-08 08:17:59.259674] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:18:07.409796] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:18:11.823459] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:18:29.990186] localhost: SELECT * FROM test
+LOGIN - [2022-12-08 08:18:55.548462] localhost: I'am here now
+LOGIN - [2022-12-08 08:19:03.948041] localhost: I'am here now
+QUERY - [2022-12-08 08:19:10.287199] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:19:16.981298] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:19:25.640105] localhost: INSERT INTO test VALUES 2
+QUERY - [2022-12-08 08:19:29.097173] localhost: COMMIT
+QUERY - [2022-12-08 08:19:33.591972] localhost: SELECT * FROM test
+ERROR - [2022-12-08 08:19:49.411366] localhost: DELETE FROM test id==2
+QUERY - [2022-12-08 08:19:59.176902] localhost: DELETE FROM test WHERE id==2
+QUERY - [2022-12-08 08:20:02.797609] localhost: COMMIT
+QUERY - [2022-12-08 08:20:08.43749] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:20:11.479553] localhost: COMMIT
+QUERY - [2022-12-08 08:20:17.129881] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:22:06.630875] localhost: SELECT * FROM test
+ERROR - [2022-12-08 08:22:12.253825] localhost: SELECT * FROM test`
+QUERY - [2022-12-08 08:22:18.613263] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:22:32.303276] localhost: DELETE FROM test WHERE id==2
+QUERY - [2022-12-08 08:22:39.137764] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:23:10.490177] localhost: UPDATE test SET id=3 WHERE id==2
+QUERY - [2022-12-08 08:23:17.225238] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:23:25.917642] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:23:30.330681] localhost: COMMIT
+QUERY - [2022-12-08 08:23:37.842278] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:23:50.015466] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:23:57.093686] localhost: SELECT * FROM test
+LOGIN - [2022-12-08 08:46:21.843386] localhost: I'am here now
+QUERY - [2022-12-08 08:46:28.793723] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:46:34.355064] localhost: I'am here now
+QUERY - [2022-12-08 08:46:37.356254] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:46:41.844068] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:46:55.724991] localhost: UPDATE test SET id=2 WHERE id==3
+QUERY - [2022-12-08 08:47:00.174311] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:47:05.414701] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:47:09.40282] localhost: COMMIT
+QUERY - [2022-12-08 08:47:14.16748] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:47:20.719113] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:47:39.412097] localhost: COMMIT
+QUERY - [2022-12-08 08:47:45.348611] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:47:51.028652] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:48:25.069462] localhost: INSERT INTO test VALUES 4
+QUERY - [2022-12-08 08:48:31.534644] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:48:41.389385] localhost: SELECT * FROM test
+QUERY - [2022-12-08 08:48:43.516343] localhost: COMMIT
+QUERY - [2022-12-08 08:48:47.661117] localhost: SELECT * FROM test
+LOGIN - [2022-12-08 08:51:47.163453] localhost: I'am here now
+ERROR - [2022-12-08 08:51:52.526999] localhost: desc database
+ERROR - [2022-12-08 08:51:58.312406] localhost: DESC DATABASE
+ERROR - [2022-12-08 08:52:06.81418] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:52:24.258283] localhost: I'am here now
+ERROR - [2022-12-08 08:52:28.947334] localhost: desc database
+QUERY - [2022-12-08 08:52:33.916696] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:52:57.201076] localhost: I'am here now
+ERROR - [2022-12-08 08:53:01.163507] localhost: desc database
+QUERY - [2022-12-08 08:53:05.179572] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:53:37.395772] localhost: DESC DATABASE
+LOGIN - [2022-12-08 08:55:18.923814] localhost: I'am here now
+QUERY - [2022-12-08 08:55:22.634144] localhost: DESC DATABASE
+QUERY - [2022-12-08 08:55:26.364888] localhost: SELECT * FROM test
+ERROR - [2022-12-08 08:55:32.522889] localhost: select * from test
+ERROR - [2022-12-08 08:55:39.813041] localhost: desc DATABASE
+LOGIN - [2022-12-08 08:56:29.097987] localhost: I'am here now
+QUERY - [2022-12-08 08:56:32.42362] localhost: DESC DATABASE
+ERROR - [2022-12-08 08:56:40.218247] localhost: desc database
+LOGIN - [2022-12-08 08:56:58.709923] localhost: I'am here now
+ERROR - [2022-12-08 08:57:01.78701] localhost: desc database
+LOGIN - [2022-12-08 08:57:55.405312] localhost: I'am here now
+ERROR - [2022-12-08 08:57:59.12223] localhost: desc database
+LOGIN - [2022-12-08 08:58:29.440885] localhost: I'am here now
+QUERY - [2022-12-08 08:58:33.912141] localhost: SELECT * FROM test
+ERROR - [2022-12-08 08:58:39.960137] localhost: select * from test
+ERROR - [2022-12-08 09:00:15.872371] localhost: DESC
+ERROR - [2022-12-08 09:00:19.958616] localhost: DESC database
+ERROR - [2022-12-08 09:00:30.276164] localhost: select * FROM test
+QUERY - [2022-12-08 09:00:36.405493] localhost: SELECT * from test
+ERROR - [2022-12-08 09:00:44.817395] localhost: select * from test
+LOGIN - [2022-12-08 09:02:25.809434] localhost: I'am here now
+QUERY - [2022-12-08 09:02:28.975411] localhost: DESC DATABASE
+ERROR - [2022-12-08 09:02:33.320137] localhost: desc database
+QUERY - [2022-12-08 09:02:40.440011] localhost: DESC DATABASE
+ERROR - [2022-12-08 09:02:47.690707] localhost: DESC database
+QUERY - [2022-12-08 09:02:54.779011] localhost: SELECT * FROM test
+QUERY - [2022-12-08 09:03:02.996074] localhost: select * from test
+QUERY - [2022-12-08 09:03:09.249929] localhost: select * from test
+QUERY - [2022-12-08 09:03:17.986633] localhost: Select * froM test
+LOGIN - [2022-12-08 09:05:55.007868] localhost: I'am here now
+QUERY - [2022-12-08 09:06:22.353394] localhost: SELECT * FROM test
+LOGIN - [2022-12-08 09:06:30.641143] localhost: I'am here now
+QUERY - [2022-12-08 09:06:37.872416] localhost: desc database
+QUERY - [2022-12-08 09:06:44.077735] localhost: desc test
+QUERY - [2022-12-08 09:07:07.694267] localhost: SELECT * FROM test
+QUERY - [2022-12-08 09:07:18.883574] localhost: select * from test
+LOGIN - [2022-12-08 09:18:27.104896] localhost: I'am here now
+QUERY - [2022-12-08 09:18:34.278536] localhost: desc database
+LOGIN - [2022-12-08 09:18:41.672678] localhost: I'am here now
+QUERY - [2022-12-08 09:18:46.284656] localhost: DESC DATABASE

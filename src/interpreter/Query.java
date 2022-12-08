@@ -49,7 +49,7 @@ public class Query {
         Table result = new Table();
         int resultSize;
         if(isSyntaxOK())
-            switch (getQueryPart(0)) {
+            switch (getQueryPart(0).toUpperCase()) {
                 case "SELECT" -> {
                     // SELECT * FROM table
                     result = getDatabase().getTable(getQueryPart(3));
@@ -108,7 +108,7 @@ public class Query {
 
                 case "DESC" -> {
                     // TODO add database to not authorized name
-                    if ("DATABASE".equals(getQueryPart(1)))
+                    if ("DATABASE".equalsIgnoreCase(getQueryPart(1)))
                         result.setTextModification(getDatabase().description());
                     else
                         result.setTextModification(getDatabase().getTable(getQueryPart(1)).description());
@@ -134,6 +134,7 @@ public class Query {
                     getDatabase().dropTable(getQueryPart(2));
                     result.setTextModification("Table supprimé dans la base (1)");
                 }
+                default -> throw new SyntaxInvalidException(getQueryPart(0), getQuery());
             }
         return result;
     }

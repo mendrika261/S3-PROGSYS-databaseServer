@@ -48,8 +48,6 @@ public class UserSession extends Thread {
                     result = Console.print(query.execute());
                     query.getDatabase().clearSubQueryTable();
 
-                    if (clientMessage.equals("COMMIT")) Main.getCommitThread().run();
-
                     FileManager.writeLog("QUERY - ["+ Timestamp.from(Instant.now()) + "] " + getSocket().getInetAddress().getHostName() + ": " + query.getQuery());
                 } catch (Exception e) {
                     result = Color.RED + e.getMessage() + Color.RESET;

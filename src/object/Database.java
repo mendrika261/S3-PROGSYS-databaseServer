@@ -3,7 +3,9 @@ package object;
 import exception.object.ColMissingException;
 import exception.object.TableAlreadyExistsException;
 import exception.object.TableNotExistsException;
+import exception.query.NameNotAuthorizedException;
 import file.FileManager;
+import server.Main;
 
 import java.io.Serializable;
 import java.util.Vector;
@@ -41,6 +43,7 @@ public class Database implements Serializable {
     public void commit() throws Exception {
         dropDatabase();
         createDatabase();
+        Main.getCommitThread().run();
     }
 
     public void clearSubQueryTable() throws Exception {
@@ -57,6 +60,7 @@ public class Database implements Serializable {
     public void createTable(String name, String ...colNames) throws Exception {
         if(colNames.length==0) throw new ColMissingException();
         if(isTable(name)) throw new TableAlreadyExistsException(getName(), name);
+        if(name.equalsIgnoreCase("database")) throw new NameNotAuthorizedException(name);
         getTables().add(new Table(name, colNames));
         commit();
     }

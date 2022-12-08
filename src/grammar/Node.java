@@ -29,7 +29,7 @@ public class Node implements Serializable {
     /** Operation */
     public boolean match(String query) {
         if(isPattern()) return Pattern.matches(getValue(), query);
-        else return getValue().equals(query);
+        else return getValue().equalsIgnoreCase(query);
     }
 
     /** Setter */

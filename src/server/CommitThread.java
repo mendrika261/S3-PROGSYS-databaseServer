@@ -1,5 +1,7 @@
 package server;
 
+import object.Database;
+
 public class CommitThread extends Thread {
     UserListener userListener;
 
