@@ -1,0 +1,170 @@
+ERROR - [2022-12-08 09:54:35.981641] localhost: desc database
+ERROR - [2022-12-08 09:54:35.98292] localhost: desc database
+LOGIN - [2022-12-18 22:22:55.513129] localhost: I'am here now
+ERROR - [2022-12-18 22:25:13.328052] localhost: SELECT * FROM tes
+ERROR - [2022-12-18 22:25:19.268177] localhost: SELECT * FROM test
+QUERY - [2022-12-18 22:25:26.268173] localhost: DESC DATABASE
+QUERY - [2022-12-18 22:25:41.376161] localhost: CREATE TABLE test COLS id,name
+ERROR - [2022-12-18 22:25:49.329723] localhost: INSERT INTO test ,
+ERROR - [2022-12-18 22:26:00.146009] localhost: INSERT INTO test VALUES ,
+ERROR - [2022-12-18 22:26:12.946295] localhost: INSERT INTO test VALUES qd,
+QUERY - [2022-12-18 22:26:22.644353] localhost: INSERT INTO test VALUES a,b
+QUERY - [2022-12-18 22:26:28.941218] localhost: SELECT * FROM test
+LOGIN - [2022-12-18 22:28:07.326842] localhost: I'am here now
+QUERY - [2022-12-18 22:28:13.302728] localhost: SELECT * FROM test
+QUERY - [2022-12-18 22:28:18.991974] localhost: COMMIT
+ERROR - [2022-12-18 22:28:23.725171] localhost: SELECT * FROM TEST
+QUERY - [2022-12-18 22:28:30.340797] localhost: SELECT * FROM test
+QUERY - [2022-12-18 22:28:42.107616] localhost: COMMIT
+QUERY - [2022-12-18 22:28:45.961198] localhost: SELECT * FROM test
+QUERY - [2022-12-18 22:55:44.141285] localhost: select * FROM test
+LOGIN - [2022-12-18 23:19:12.188792] localhost: I'am here now
+SUCESS - [2022-12-18 23:19:19.85671] localhost: select * from test
+ERROR - [2022-12-18 23:19:21.838747] localhost: gfgh
+ERROR - [2022-12-18 23:19:24.59478] localhost: iouoi
+ERROR - [2022-12-18 23:19:31.639877] localhost: select * from
+LOGIN - [2022-12-18 23:52:52.642944] localhost: I'am here now
+SUCESS - [2022-12-18 23:52:59.987136] localhost: desc database
+SUCESS - [2022-12-18 23:53:05.364722] localhost: select * from test
+SUCESS - [2022-12-18 23:53:14.735598] localhost: insert into test values az,ds
+SUCESS - [2022-12-18 23:53:35.429392] localhost: select * from test
+LOGIN - [2022-12-18 23:53:51.625552] localhost: I'am here now
+SUCESS - [2022-12-18 23:53:55.556038] localhost: select * from test
+ERROR - [2022-12-18 23:55:45.675814] localhost: SELECT * FROM TEST
+SUCESS - [2022-12-18 23:55:50.86544] localhost: select * from test
+SUCESS - [2022-12-18 23:56:06.940741] localhost: insert into test values 2,term
+SUCESS - [2022-12-18 23:56:11.900889] localhost: select * from test
+ERROR - [2022-12-18 23:56:20.399191] localhost: select * from tetst
+SUCESS - [2022-12-18 23:56:27.078496] localhost: select * from test
+SUCESS - [2022-12-18 23:56:50.963964] localhost: select * from test
+SUCESS - [2022-12-18 23:57:01.506612] localhost: rollback
+SUCESS - [2022-12-18 23:57:08.553477] localhost: select * from test
+SUCESS - [2022-12-18 23:57:14.866997] localhost: select * from test
+LOGIN - [2022-12-19 00:01:31.075664] localhost: I'am here now
+SUCESS - [2022-12-19 00:01:39.372737] localhost: select * from test
+LOGIN - [2022-12-19 00:01:46.12261] localhost: I'am here now
+SUCESS - [2022-12-19 00:01:50.323071] localhost: select * from test
+SUCESS - [2022-12-19 00:02:22.418769] localhost: insert into test values a,z
+ERROR - [2022-12-19 00:03:00.501722] localhost: select �* from test
+LOGIN - [2022-12-19 00:05:38.992197] localhost: I'am here now
+SUCESS - [2022-12-19 00:05:46.28255] localhost: select * from test
+SUCESS - [2022-12-19 00:05:52.719519] localhost: select * from test
+LOGIN - [2022-12-19 00:06:25.697004] localhost: I'am here now
+SUCESS - [2022-12-19 00:06:31.280538] localhost: select * from test
+SUCESS - [2022-12-19 00:06:42.655647] localhost: select * from test
+SUCESS - [2022-12-19 00:06:50.669527] localhost: insert into test values a,s
+SUCESS - [2022-12-19 00:07:01.185845] localhost: select * from test
+SUCESS - [2022-12-19 00:07:26.341206] localhost: select * from test
+SUCESS - [2022-12-19 00:07:43.478233] localhost: select * from test
+SUCESS - [2022-12-19 00:07:53.972387] localhost: select * from test
+LOGIN - [2022-12-19 00:09:24.41539] localhost: I'am here now
+LOGIN - [2022-12-19 00:17:48.341352] localhost: I'am here now
+LOGIN - [2022-12-19 00:17:53.992509] localhost: I'am here now
+SUCESS - [2022-12-19 00:18:04.523487] localhost: select * from test
+SUCESS - [2022-12-19 00:18:31.800785] localhost: select * from test
+SUCESS - [2022-12-19 00:19:03.942326] localhost: select * from test
+LOGIN - [2022-12-19 00:21:43.886842] localhost: I'am here now
+SUCESS - [2022-12-19 00:21:52.613597] localhost: select * from test
+LOGIN - [2022-12-19 00:21:56.860644] localhost: I'am here now
+SUCESS - [2022-12-19 00:22:04.863488] localhost: select * from test
+SUCESS - [2022-12-19 00:22:29.986995] localhost: select * from test
+LOGIN - [2022-12-19 00:23:54.856682] localhost: I'am here now
+SUCESS - [2022-12-19 00:24:07.15531] localhost: select * from test
+LOGIN - [2022-12-19 00:24:10.582545] localhost: I'am here now
+SUCESS - [2022-12-19 00:24:18.634505] localhost: select * from test
+LOGIN - [2022-12-19 00:30:39.744705] localhost: I'am here now
+LOGIN - [2022-12-19 00:30:45.821575] localhost: I'am here now
+SUCESS - [2022-12-19 00:30:58.795658] localhost: select * from test
+ERROR - [2022-12-19 00:31:21.213839] localhost: insert into test values &12,sd
+SUCESS - [2022-12-19 00:31:49.313826] localhost: insert into test values 12,ds
+SUCESS - [2022-12-19 00:31:59.054348] localhost: select * from test
+SUCESS - [2022-12-19 00:32:08.529716] localhost: select * from test
+ERROR - [2022-12-19 00:32:23.105337] localhost: insert into 13,ze
+ERROR - [2022-12-19 00:32:51.217562] localhost: insert into test values 13, ze
+SUCESS - [2022-12-19 00:33:05.832913] localhost: insert into test values 13,ze
+SUCESS - [2022-12-19 00:33:16.03537] localhost: select * from test
+SUCESS - [2022-12-19 00:33:29.76849] localhost: select * from test
+LOGIN - [2022-12-19 00:35:10.268651] localhost: I'am here now
+LOGIN - [2022-12-19 00:35:21.385292] localhost: I'am here now
+SUCESS - [2022-12-19 00:35:30.502305] localhost: select * from test
+SUCESS - [2022-12-19 00:35:42.751861] localhost: select * from test
+SUCESS - [2022-12-19 00:35:57.423278] localhost: insert into test values 2,az
+SUCESS - [2022-12-19 00:36:11.527505] localhost: insert into test values 1,qsdfsd
+SUCESS - [2022-12-19 00:36:21.201433] localhost: insert into test values 1,qsdfsd
+SUCESS - [2022-12-19 00:36:21.254874] localhost: insert into test values 2,az
+LOGIN - [2022-12-19 00:37:37.934781] localhost: I'am here now
+SUCESS - [2022-12-19 00:37:50.152877] localhost: select * from test
+LOGIN - [2022-12-19 00:37:55.245961] localhost: I'am here now
+SUCESS - [2022-12-19 00:38:14.611374] localhost: insert into test values 22,qsjd
+SUCESS - [2022-12-19 00:38:37.556492] localhost: insert into test values 11,qsds
+LOGIN - [2022-12-19 00:41:45.113442] localhost: I'am here now
+LOGIN - [2022-12-19 00:41:47.992799] localhost: I'am here now
+ERROR - [2022-12-19 00:42:08.276761] localhost: xselect * from test
+SUCESS - [2022-12-19 00:42:24.044415] localhost: insert into test values 111,qsdf
+SUCESS - [2022-12-19 00:42:33.068272] localhost: insert into test values 222,sqdf
+SUCESS - [2022-12-19 00:42:46.914781] localhost: select * from test
+SUCESS - [2022-12-19 00:42:52.039827] localhost: select * from test
+SUCESS - [2022-12-19 00:42:52.048669] localhost: insert into test values 222,sqdf
+SUCESS - [2022-12-19 00:43:01.425007] localhost: select * from test
+SUCESS - [2022-12-19 00:43:08.662885] localhost: select * from test
+LOGIN - [2022-12-19 00:48:11.530849] localhost: I'am here now
+LOGIN - [2022-12-19 00:48:17.330245] localhost: I'am here now
+ERROR - [2022-12-19 00:48:31.279109] localhost: insert into test 9,sqdf
+SUCESS - [2022-12-19 00:48:46.476496] localhost: insert into test values 9,qdsfqsdf
+SUCESS - [2022-12-19 00:49:01.601373] localhost: insert into test values 8,qsdfqsd
+SUCESS - [2022-12-19 00:49:12.95994] localhost: insert into test values 9,qdsfqsdf
+SUCESS - [2022-12-19 00:49:13.052427] localhost: insert into test values 8,qsdfqsd
+SUCESS - [2022-12-19 00:49:30.356663] localhost: select * from test
+LOGIN - [2022-12-19 00:55:03.202144] localhost: I'am here now
+LOGIN - [2022-12-19 00:55:14.412242] localhost: I'am here now
+SUCESS - [2022-12-19 00:55:21.219673] localhost: delete from test
+SUCESS - [2022-12-19 00:55:24.760914] localhost: delete from test
+SUCESS - [2022-12-19 00:55:31.171087] localhost: select * from test
+SUCESS - [2022-12-19 00:55:48.003467] localhost: insert into test values 1,qa
+SUCESS - [2022-12-19 00:55:52.951331] localhost: insert into test values 1,qa
+SUCESS - [2022-12-19 00:56:01.534694] localhost: select * from test
+SUCESS - [2022-12-19 00:56:13.097436] localhost: insert into test values 2,qsqd
+SUCESS - [2022-12-19 00:56:33.268029] localhost: insert into test values 3,apois
+SUCESS - [2022-12-19 00:56:57.921617] localhost: select * from test
+ERROR - [2022-12-19 00:57:40.676437] localhost: select * from test
+ERROR - [2022-12-19 00:57:40.678529] localhost: select * from test
+LOGIN - [2022-12-19 00:57:41.293271] localhost: I'am here now
+LOGIN - [2022-12-19 00:57:48.575133] localhost: I'am here now
+LOGIN - [2022-12-19 00:57:50.288329] localhost: I'am here now
+SUCESS - [2022-12-19 00:57:58.613797] localhost: select * from test
+SUCESS - [2022-12-19 00:58:22.303365] localhost: insert into test values 2,qsdkjsq
+ERROR - [2022-12-19 00:58:32.836471] localhost: insert into tezst values 3,qdsfjqslkdf
+SUCESS - [2022-12-19 00:58:44.274477] localhost: insert into test values 3,qsdqsd
+SUCESS - [2022-12-19 00:58:51.792703] localhost: select * from test
+SUCESS - [2022-12-19 00:58:59.452814] localhost: select * from test
+SUCESS - [2022-12-19 00:59:10.467538] localhost: select * from test
+SUCESS - [2022-12-19 00:59:10.565461] localhost: select * from test
+SUCESS - [2022-12-19 00:59:17.897724] localhost: select * from test
+SUCESS - [2022-12-19 00:59:24.68669] localhost: select * from test
+LOGIN - [2022-12-19 01:00:49.532518] localhost: I'am here now
+LOGIN - [2022-12-19 01:00:54.778601] localhost: I'am here now
+ERROR - [2022-12-19 01:01:05.813345] localhost: sslect * from test
+SUCESS - [2022-12-19 01:01:15.633894] localhost: select * from test
+SUCESS - [2022-12-19 01:01:30.804095] localhost: insert into test values 4,qdf
+SUCESS - [2022-12-19 01:01:56.320592] localhost: insert into test values 3,sdfgdfsg
+LOGIN - [2022-12-19 01:04:12.33517] localhost: I'am here now
+LOGIN - [2022-12-19 01:04:16.520626] localhost: I'am here now
+SUCESS - [2022-12-19 01:04:34.26552] localhost: insert into test values r,sdfq
+SUCESS - [2022-12-19 01:04:51.353712] localhost: insert into test values a,sdgdf
+SUCESS - [2022-12-19 01:05:00.481274] localhost: insert into test values r,sdfq
+SUCESS - [2022-12-19 01:05:00.484787] localhost: insert into test values a,sdgdf
+SUCESS - [2022-12-19 01:05:16.936907] localhost: select * from test
+SUCESS - [2022-12-19 01:12:57.161077] localhost: delete from test where id==2
+SUCESS - [2022-12-19 01:13:47.19427] localhost: update test set name=dfgs where id==2
+SUCESS - [2022-12-19 01:13:53.551827] localhost: update test set name=dfgs where id==2
+SUCESS - [2022-12-19 01:14:02.836014] localhost: delete from test where id==2
+SUCESS - [2022-12-19 01:14:45.572461] localhost: delete from test where id==2
+SUCESS - [2022-12-19 01:15:01.352561] localhost: select * from test
+SUCESS - [2022-12-19 01:15:15.444776] localhost: select * from test
+SUCESS - [2022-12-19 01:15:34.683295] localhost: select * from test
+SUCESS - [2022-12-19 01:15:43.523079] localhost: select * from test
+SUCESS - [2022-12-19 01:16:27.54114] localhost: update test set name=azea where id==2
+SUCESS - [2022-12-19 01:16:36.211817] localhost: select * from test
+SUCESS - [2022-12-19 01:17:11.268109] localhost: drop table test
+SUCESS - [2022-12-19 01:17:26.508481] localhost: drop table test
+SUCESS - [2022-12-19 01:17:26.523234] localhost: select * from test

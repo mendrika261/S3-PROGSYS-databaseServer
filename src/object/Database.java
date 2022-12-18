@@ -43,7 +43,6 @@ public class Database implements Serializable {
     public void commit() throws Exception {
         dropDatabase();
         createDatabase();
-        Main.getCommitThread().run();
     }
 
     public void clearSubQueryTable() throws Exception {

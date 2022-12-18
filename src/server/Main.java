@@ -6,7 +6,6 @@ import java.net.ServerSocket;
 import java.util.Scanner;
 
 public class Main {
-    static CommitThread commitThread;
 
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -16,7 +15,6 @@ public class Main {
         ServerSocket serverSocket = new ServerSocket(Integer.parseInt(args[0]));
         UserListener userListener = new UserListener(serverSocket);
         userListener.start();
-        setCommitThread(new CommitThread(userListener));
 
         System.out.println(Color.YELLOW + "Le serveur est demarré sur le port "+ serverSocket.getLocalPort() + Color.RESET);
 
@@ -34,13 +32,5 @@ public class Main {
                 default -> System.out.println(Color.RED + "\tCommande invalide, see README.md!" + Color.RESET);
             }
         }
-    }
-
-    public static void setCommitThread(CommitThread commitThread) {
-        Main.commitThread = commitThread;
-    }
-
-    public static CommitThread getCommitThread() {
-        return commitThread;
     }
 }

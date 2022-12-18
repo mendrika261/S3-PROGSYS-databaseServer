@@ -7,7 +7,6 @@ import grammar.Node;
 import grammar.Tree;
 import object.Database;
 import object.Table;
-import server.CommitThread;
 
 import java.util.Vector;
 
@@ -112,7 +111,6 @@ public class Query {
                         result.setTextModification(getDatabase().description());
                     else
                         result.setTextModification(getDatabase().getTable(getQueryPart(1)).description());
-
                 }
 
                 case "COMMIT" -> {
@@ -185,6 +183,14 @@ public class Query {
             }
         }
         setQuery(newQuery.toString());
+    }
+
+    public Table resolve(String clientMessage) throws Exception {
+        setQuery(clientMessage);
+        while (getNbSubQuery() != 0) executeSubQuery();
+        Table resultTable = execute();
+        getDatabase().clearSubQueryTable();
+        return resultTable;
     }
 
     /** Setter */

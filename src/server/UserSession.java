@@ -5,19 +5,27 @@ import display.Console;
 import file.FileManager;
 import interpreter.Query;
 import object.Database;
+import object.Table;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.net.Socket;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserSession extends Thread {
     Socket socket;
     Database database;
+    int commitOrder;
+    UserListener userListener;
+    List<String> history = new ArrayList<>();
 
-    public UserSession(Socket socket) {
+    public UserSession(Socket socket, UserListener userListener) {
         setSocket(socket);
+        setUserListener(userListener);
         setName("Session of " + getSocket().getInetAddress().getHostName());
     }
 
@@ -35,20 +43,18 @@ public class UserSession extends Thread {
                 String result = null;
                 try {
                     clientMessage = dataInputStream.readUTF();
+                    getHistory().add(clientMessage);
 
-                    if (clientMessage.equals("EXIT")) {
-                        FileManager.writeLog("LOGOUT - [" + Timestamp.from(Instant.now()) +"] " + getSocket().getInetAddress().getHostName() + ": I'm out now");
-                        dataOutputStream.writeUTF("EXIT");
-                        getSocket().close();
+                    if (clientMessage.equalsIgnoreCase("EXIT")) {
+                        exit(dataOutputStream);
                         return;
-                    }
+                    } else if (clientMessage.equalsIgnoreCase("COMMIT")) {
+                        UserCommit userCommit = new UserCommit(dataOutputStream, this, getUserListener());
+                        userCommit.run();
+                        dataOutputStream.writeUTF("Transaction: modification réussie!");
+                    } else result = Console.print(query.resolve(clientMessage));
 
-                    query.setQuery(clientMessage);
-                    while (query.getNbSubQuery() != 0) query.executeSubQuery();
-                    result = Console.print(query.execute());
-                    query.getDatabase().clearSubQueryTable();
-
-                    FileManager.writeLog("QUERY - ["+ Timestamp.from(Instant.now()) + "] " + getSocket().getInetAddress().getHostName() + ": " + query.getQuery());
+                    FileManager.writeLog("SUCESS - ["+ Timestamp.from(Instant.now()) + "] " + getSocket().getInetAddress().getHostName() + ": " + query.getQuery());
                 } catch (Exception e) {
                     result = Color.RED + e.getMessage() + Color.RESET;
 
@@ -58,6 +64,12 @@ public class UserSession extends Thread {
                 }
             }
         } catch (Exception ignored) {}
+    }
+
+    public void exit(DataOutputStream dataOutputStream) throws IOException {
+        FileManager.writeLog("LOGOUT - [" + Timestamp.from(Instant.now()) +"] " + getSocket().getInetAddress().getHostName() + ": I'm out now");
+        dataOutputStream.writeUTF("EXIT");
+        getSocket().close();
     }
 
     public void setSocket(Socket socket) {
@@ -74,5 +86,29 @@ public class UserSession extends Thread {
 
     public Database getDatabase() {
         return database;
+    }
+
+    public int getCommitOrder() {
+        return commitOrder;
+    }
+
+    public void setCommitOrder(int commitOrder) {
+        this.commitOrder = commitOrder;
+    }
+
+    public List<String> getHistory() {
+        return history;
+    }
+
+    public void setHistory(List<String> history) {
+        this.history = history;
+    }
+
+    public UserListener getUserListener() {
+        return userListener;
+    }
+
+    public void setUserListener(UserListener userListener) {
+        this.userListener = userListener;
     }
 }

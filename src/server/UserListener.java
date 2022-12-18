@@ -14,6 +14,7 @@ import java.util.List;
 public class UserListener extends Thread {
     ServerSocket serverSocket;
     List<UserSession> users = new ArrayList<>();
+    boolean committingState = false;
 
     public UserListener(ServerSocket serverSocket) {
         setServerSocket(serverSocket);
@@ -36,8 +37,9 @@ public class UserListener extends Thread {
                 throw new RuntimeException(e);
             }
 
-            UserSession userSession = new UserSession(socket);
+            UserSession userSession = new UserSession(socket, this);
             getUsers().add(userSession);
+            userSession.setCommitOrder(getNextCommitRank());
             userSession.start();
         }
     }
@@ -54,6 +56,24 @@ public class UserListener extends Thread {
         return activeClients() + " client(s) actif(s) et " + getUsers().size() + " client(s) traité(s)";
     }
 
+    public int getCurrentCommitRank() {
+        if(getUsers().size()==0) return 1;
+        int min=getUsers().get(0).getCommitOrder();
+        for (UserSession userSession:getUsers()) {
+            if(userSession.getCommitOrder()<min) min = userSession.getCommitOrder();
+        }
+        return min;
+    }
+
+    public int getNextCommitRank() {
+        if(getUsers().size()==0) return 1;
+        int max=getUsers().get(0).getCommitOrder();
+        for (UserSession userSession:getUsers()) {
+            if(userSession.getCommitOrder()>max) max = userSession.getCommitOrder();
+        }
+        return max+1;
+    }
+
     public ServerSocket getServerSocket() {
         return serverSocket;
     }
@@ -68,5 +88,13 @@ public class UserListener extends Thread {
 
     public List<UserSession> getUsers() {
         return users;
+    }
+
+    public boolean isCommittingState() {
+        return committingState;
+    }
+
+    public void setCommittingState(boolean committingState) {
+        this.committingState = committingState;
     }
 }
