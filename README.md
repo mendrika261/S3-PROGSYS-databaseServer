@@ -18,7 +18,7 @@ You can download the latest version on <a href='https://github.com/mendrika261/d
 **Args:** The port to listen
 
 ### About Log
-Database log can be found on `file/db/database.log`.
+Database log can be found on `datafile/`.
 There are error, login, logout and trace of all query based on ip and time.
 
 ### Working commands
