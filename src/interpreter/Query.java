@@ -107,7 +107,6 @@ public class Query {
                 }
 
                 case "DESC" -> {
-                    // TODO add database to not authorized name
                     if ("DATABASE".equalsIgnoreCase(getQueryPart(1))) result.setTextModification(getDatabase().description());
                     else result.setTextModification(getDatabase().getTable(getQueryPart(1)).description());
                 }

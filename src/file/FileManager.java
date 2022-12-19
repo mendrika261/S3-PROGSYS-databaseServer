@@ -3,7 +3,7 @@ package file;
 import java.io.*;
 
 public class FileManager {
-    public static String FILEPATH = "src/file/db/";
+    public static String FILEPATH = "datafile/";
 
     public static void save(String filename, Object object) throws Exception {
         FileOutputStream fileOutputStream = new FileOutputStream(FILEPATH+filename);
@@ -29,8 +29,7 @@ public class FileManager {
     }
 
     public static void writeLog(String row) throws IOException {
-        // TODO
-        File file = new File("database.log");
+        File file = new File(FILEPATH+"database.log");
         FileWriter fr = new FileWriter(file, true);
         fr.write(row+"\n");
         fr.close();

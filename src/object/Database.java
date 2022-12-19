@@ -5,7 +5,6 @@ import exception.object.TableAlreadyExistsException;
 import exception.object.TableNotExistsException;
 import exception.query.NameNotAuthorizedException;
 import file.FileManager;
-import server.Main;
 
 import java.io.Serializable;
 import java.util.Vector;

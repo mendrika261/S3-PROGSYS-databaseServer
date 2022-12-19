@@ -5,7 +5,6 @@ import display.Console;
 import file.FileManager;
 import interpreter.Query;
 import object.Database;
-import object.Table;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
