@@ -5,6 +5,7 @@ import exception.object.TableAlreadyExistsException;
 import exception.object.TableNotExistsException;
 import exception.query.NameNotAuthorizedException;
 import file.FileManager;
+import server.Main;
 
 import java.io.Serializable;
 import java.util.Vector;
@@ -44,7 +45,7 @@ public class Database implements Serializable {
         createDatabase();
     }
 
-    public void clearSubQueryTable() throws Exception {
+    public void clearSubQueryTable() {
         getTables().removeIf(table -> table.getName().startsWith("subQuery"));
     }
     /* Table */
@@ -61,12 +62,14 @@ public class Database implements Serializable {
         if(name.equalsIgnoreCase("database")) throw new NameNotAuthorizedException(name);
         getTables().add(new Table(name, colNames));
         commit();
+        Main.getAutoCommitUser().actualiseAllUser();
     }
 
     public void dropTable(String name) throws Exception {
         if(!isTable(name)) throw new TableNotExistsException(getName(), name);
         getTables().remove(getTable(name));
         commit();
+        Main.getAutoCommitUser().actualiseAllUser();
     }
 
     public String description() {

@@ -33,8 +33,8 @@ public class UserListener extends Thread {
                         +": I'am here now");
             } catch (SocketException e) {
                 return;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
 
             UserSession userSession = new UserSession(socket, this);
@@ -53,7 +53,7 @@ public class UserListener extends Thread {
     }
 
     public String statusOfClients() {
-        return activeClients() + " client(s) actif(s) et " + getUsers().size() + " client(s) traité(s)";
+        return activeClients() + " client(s) encore actif(s) sur les " + getUsers().size() + " client(s) traité(s)";
     }
 
     public int getCurrentCommitRank(UserSession commitRequest) {

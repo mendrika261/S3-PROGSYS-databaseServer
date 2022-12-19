@@ -7,6 +7,7 @@ import grammar.Node;
 import grammar.Tree;
 import object.Database;
 import object.Table;
+import server.Main;
 
 import java.util.Vector;
 
@@ -26,7 +27,7 @@ public class Query {
     }
 
     boolean haveCondition(String query) {
-        return query.contains("WHERE");
+        return query.toUpperCase().contains("WHERE");
     }
 
     boolean testSyntax(int queryIndex, Vector<Node> nodes) throws Exception {
@@ -113,6 +114,7 @@ public class Query {
 
                 case "COMMIT" -> {
                     getDatabase().commit();
+                    Main.getAutoCommitUser().actualiseAllUser();
                     result.setTextModification("Modification enregistré!");
                 }
 

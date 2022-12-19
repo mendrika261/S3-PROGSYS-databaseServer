@@ -34,7 +34,7 @@ public class UserSession extends Thread {
             DataInputStream dataInputStream = new DataInputStream(getSocket().getInputStream());
             DataOutputStream dataOutputStream = new DataOutputStream(getSocket().getOutputStream());
 
-            setDatabase(new Database("test"));
+            setDatabase(new Database(Main.DATABASE));
             Query query = new Query(getDatabase());
             String clientMessage;
 

@@ -3,12 +3,15 @@ package server;
 import interpreter.Query;
 
 import java.io.DataOutputStream;
-import java.io.IOException;
 
 public class UserCommit extends Thread {
     DataOutputStream dataOutputStream;
     UserSession userSession;
     UserListener userListener;
+
+    public UserCommit(UserListener userListener) {
+        setUserListener(userListener);
+    }
 
     public UserCommit(DataOutputStream dataOutputStream, UserSession userSession, UserListener userListener) {
         setDataOutputStream(dataOutputStream);
