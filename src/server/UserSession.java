@@ -43,16 +43,24 @@ public class UserSession extends Thread {
                 String result = null;
                 try {
                     clientMessage = dataInputStream.readUTF();
-                    getHistory().add(clientMessage);
 
                     if (clientMessage.equalsIgnoreCase("EXIT")) {
                         exit(dataOutputStream);
                         return;
-                    } else if (clientMessage.equalsIgnoreCase("COMMIT")) {
+                    } else if (clientMessage.equalsIgnoreCase("COMMIT") && getHistory().size()>0) {
                         UserCommit userCommit = new UserCommit(dataOutputStream, this, getUserListener());
                         userCommit.run();
                         dataOutputStream.writeUTF("Transaction: modification réussie!");
                     } else result = Console.print(query.resolve(clientMessage));
+
+                    if(needToBeCommitQuery(clientMessage)) {
+                        getHistory().add(clientMessage);
+                        if(getHistory().size()==1)
+                            setCommitOrder(getUserListener().getNextCommitRank());
+                    } else if(clientMessage.equalsIgnoreCase("rollback")) {
+                        getHistory().clear();
+                        setCommitOrder(0);
+                    }
 
                     FileManager.writeLog("SUCESS - ["+ Timestamp.from(Instant.now()) + "] " + getSocket().getInetAddress().getHostName() + ": " + query.getQuery());
                 } catch (Exception e) {
@@ -70,6 +78,15 @@ public class UserSession extends Thread {
         FileManager.writeLog("LOGOUT - [" + Timestamp.from(Instant.now()) +"] " + getSocket().getInetAddress().getHostName() + ": I'm out now");
         dataOutputStream.writeUTF("EXIT");
         getSocket().close();
+    }
+
+    public boolean needToBeCommitQuery(String query) {
+        String command = query.split(" ")[0];
+        String[] needCommitCommand = {"insert", "update", "delete"};
+        for (String m:needCommitCommand) {
+            if(m.equalsIgnoreCase(command)) return true;
+        }
+        return false;
     }
 
     public void setSocket(Socket socket) {

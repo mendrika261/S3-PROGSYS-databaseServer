@@ -98,19 +98,18 @@ public class Query {
 
                 case "DELETE" -> {
                     result = getDatabase().getTable(getQueryPart(2));
+                    int beforeSize = result.getData().size();
                     if(getQueryParts().length>4)
-                        result = result.selection(getQueryPart(4));
-                    resultSize = result.getData().size();
-                    result.delete();
+                        result.delete(getQueryPart(4));
+                    else result.getData().clear();
+                    resultSize = beforeSize-result.getData().size();
                     result.setTextModification("Ligne modifié ("+resultSize+")");
                 }
 
                 case "DESC" -> {
                     // TODO add database to not authorized name
-                    if ("DATABASE".equalsIgnoreCase(getQueryPart(1)))
-                        result.setTextModification(getDatabase().description());
-                    else
-                        result.setTextModification(getDatabase().getTable(getQueryPart(1)).description());
+                    if ("DATABASE".equalsIgnoreCase(getQueryPart(1))) result.setTextModification(getDatabase().description());
+                    else result.setTextModification(getDatabase().getTable(getQueryPart(1)).description());
                 }
 
                 case "COMMIT" -> {

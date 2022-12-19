@@ -92,8 +92,13 @@ public class Table implements Serializable {
         update(changePart[0], changePart[1]);
     }
 
-    public void delete() {
-        getData().clear();
+    public void delete(String condition) throws Exception {
+        String operator = Operator.getCompOperator(condition);
+        String[] conditionPart = condition.split(operator);
+        for (int i=0; i<getData().size(); i++) {
+            if (getData().get(i).matchCondition(getColIndex(conditionPart[0]), Operator.getCompOperatorCode(condition), conditionPart[1]))
+                getData().remove(getData().get(i));
+        }
     }
 
     public Table cartesian(Table table2) throws ColDuplicateException {

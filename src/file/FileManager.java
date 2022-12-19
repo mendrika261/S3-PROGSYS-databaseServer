@@ -30,7 +30,7 @@ public class FileManager {
 
     public static void writeLog(String row) throws IOException {
         // TODO
-        File file = new File(FILEPATH+"database.log");
+        File file = new File("database.log");
         FileWriter fr = new FileWriter(file, true);
         fr.write(row+"\n");
         fr.close();

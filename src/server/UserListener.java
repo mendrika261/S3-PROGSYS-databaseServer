@@ -39,7 +39,7 @@ public class UserListener extends Thread {
 
             UserSession userSession = new UserSession(socket, this);
             getUsers().add(userSession);
-            userSession.setCommitOrder(getNextCommitRank());
+            userSession.setCommitOrder(0);
             userSession.start();
         }
     }
@@ -56,11 +56,12 @@ public class UserListener extends Thread {
         return activeClients() + " client(s) actif(s) et " + getUsers().size() + " client(s) traité(s)";
     }
 
-    public int getCurrentCommitRank() {
+    public int getCurrentCommitRank(UserSession commitRequest) {
         if(getUsers().size()==0) return 1;
-        int min=getUsers().get(0).getCommitOrder();
+        int min=getUsers().get(getUsers().indexOf(commitRequest)).getCommitOrder();
         for (UserSession userSession:getUsers()) {
-            if(userSession.getCommitOrder()<min) min = userSession.getCommitOrder();
+            if(userSession.getCommitOrder()<min && userSession.getCommitOrder()!=0)
+                min = userSession.getCommitOrder();
         }
         return min;
     }
