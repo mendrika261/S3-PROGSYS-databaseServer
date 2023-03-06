@@ -6,9 +6,6 @@ Client can be found <a href='https://github.com/mendrika261/databaseClient'>here
 > Remember that it is just for educational use!
 
 
-https://user-images.githubusercontent.com/97053149/208431552-cf58065b-30b5-4713-a7bb-a632c6f1d4ec.mp4
-
-
 ## How to use
 
 ### Requirements
