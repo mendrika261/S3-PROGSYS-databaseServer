@@ -3,7 +3,7 @@
 This is the server CLI-Based Application of a database management system (DBMS) implemented in Java.
 Client can be found <a href='https://github.com/mendrika261/databaseClient'>here</a>.
 
-> Remember that it is just for educational use!
+> This DBMS system was developed by students as part of a class project and should not be considered a fully-functional system.
 
 
 ## How to use
