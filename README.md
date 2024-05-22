@@ -3,6 +3,12 @@
 This is the server CLI-Based Application of a database management system (DBMS) implemented in Java.
 Client can be found <a href='https://github.com/mendrika261/databaseClient'>here</a>.
 
+
+
+https://github.com/mendrika261/S3-PROGSYS-databaseServer/assets/97053149/25f43ed1-42d0-4429-867f-9634bf3d4bf0
+
+
+
 > This DBMS system was developed by students as part of a class project and should not be considered a fully-functional system.
 
 
